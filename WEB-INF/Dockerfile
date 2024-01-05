@@ -14,7 +14,7 @@ RUN mkdir -p ${SOAPUI_HOME} \
 RUN rm -rf /usr/local/tomcat/webapps/*
  
 # Copy SoapUI WAR file to Tomcat webapps directory
-COPY ./my-soapui-webapp.war /usr/local/tomcat/webapps/
+COPY ./Test.war /usr/local/tomcat/webapps/
  
 # Expose the Tomcat port
 EXPOSE 9090
