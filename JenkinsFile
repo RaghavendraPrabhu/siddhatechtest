@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('GitClone') {
+            steps {
+               git branch: 'feature/nikita', credentialsId: '49fc5d96-6df3-450e-a375-f5c0d84e110e', url: 'https://github.com/RaghavendraPrabhu/siddhatechtest.git'
+            }
+        }
+    }
+}
