@@ -23,7 +23,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build("testjar", "-f ${env.WORKSPACE}/Dockerfile .")
+          dockerImage = docker.build("testwarfile", "-f ${env.WORKSPACE}/Dockerfile .")
         }
       }
     }
