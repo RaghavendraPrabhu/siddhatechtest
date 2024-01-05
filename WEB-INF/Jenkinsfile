@@ -1,0 +1,64 @@
+
+
+pipeline{
+  agent any;
+  stages{
+    stage('Pull-Code'){
+          steps{
+			echo "Pulling Updated Code To Server.....***** "
+			sh 'git stash'
+              git branch: 'feature/tejaswini', credentialsId: 'tejaswinis@siddhatech.com', url: 'https://github.com/RaghavendraPrabhu/siddhatechtest.git'
+          }
+        }
+        
+      	stage('katalon-setup'){
+		    steps{
+		    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+		    {
+	        	script{
+		        	
+		        		sh '''
+                       cd /
+		       			cd /Applications/KatalonStudioEngine.app/Contents/MacOS
+              
+
+				'''
+	  }
+  }
+		    }
+	}
+  }
+    
+      
+     post {
+		// always {
+		// 	// Create a zip file for Katalon Studio reports
+			
+		// 	sh 'zip -r katalon_reports.zip /Users/bancoreservas/Documents/GitHub/new-persona/new-BanReservas_iOS_Personal/BanReservas-ios-Personal/Reports'
+  //             //  sh 'zip -r katalon_reports.zip /Reports'
+		// 	// Attach the zip file to the email
+		// 	emailext subject: 'Katalon Test Results',
+		// 			  body: 'Please find attached Katalon test results.',
+		// 			  mimeType: 'text/html',
+		// 			  to: 'tejaswinisiddhatech@gmail.com',
+		// 			  attachmentsPattern: 'katalon_reports.zip,build.log'
+		// }
+	     always {
+    echo 'Current Directory: ' + pwd()
+    echo 'Reports Directory Contents: ' + sh(script: 'ls /Users/bancoreservas/Documents/GitHub/new-persona/new-BanReservas_iOS_Personal/BanReservas-ios-Personal/Reports', returnStdout: true).trim()
+    
+    sh 'zip -r katalon_reports.zip /Users/bancoreservas/Documents/GitHub/new-persona/new-BanReservas_iOS_Personal/BanReservas-ios-Personal/Reports'
+    
+    // Attach the zip file and build log to the email
+    emailext subject: 'Katalon Test Results',
+              body: 'Please find attached Katalon test results.',
+              mimeType: 'text/html',
+              to: 'tejaswinisiddhatech@gmail.com',
+              attachmentsPattern: 'katalon_reports.zip,build.log'
+}
+
+	}
+  
+  
+}
+//added comment 1
