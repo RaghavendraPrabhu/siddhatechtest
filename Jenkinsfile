@@ -20,10 +20,19 @@ pipeline {
       }
     }
 
+    // stage('Build image') {
+    //   steps{
+    //     script {
+    //       dockerImage = docker.build("testwarfile", "-f ${env.WORKSPACE} .")
+    //     }
+    //   }
+    // }
+
     stage('Build image') {
       steps{
-        script {
-          dockerImage = docker.build("testwarfile", "-f ${env.WORKSPACE} .")
+        dir("${env.WORKSPACE}"){
+          sh "pwd"
+          sh "docker build -t 'testwarfile' ."
         }
       }
     }
