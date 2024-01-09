@@ -1,7 +1,7 @@
-FROM tomcat:9-alpine
-LABEL maintainer "kavitab"
-ADD target/Sidhatest-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
-COPY target/Sidhatest-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+FROM tomcat:8.0.53
+WORKDIR /usr/local/tomcat/
+COPY tomcat-users.xml /usr/local/tomcat/conf/
+COPY Test2.war /usr/local/tomcat/webapps/
 EXPOSE 80
 CMD ["catalina.sh", "run"]
 

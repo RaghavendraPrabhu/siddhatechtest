@@ -11,12 +11,12 @@
         <init-param>
             <description>project file path</description>
             <param-name>projectFile</param-name>
-            <param-value>WEB-INF/soapui/mock-all-services-soapui-project.xml</param-value>
+            <param-value>WEB-INF/soapui/siddhatechtest.xml</param-value>
         </init-param>
         <init-param>
             <description>enable Web UI</description>
             <param-name>enableWebUI</param-name>
-            <param-value>true</param-value>
+            <param-value>false</param-value>
         </init-param>
         <init-param>
             <description>global settings file</description>
