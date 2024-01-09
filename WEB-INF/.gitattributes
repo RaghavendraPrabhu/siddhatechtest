@@ -1,0 +1,2 @@
+WEB-INF/Test.war filter=lfs diff=lfs merge=lfs -text
+Test.war filter=lfs diff=lfs merge=lfs -text

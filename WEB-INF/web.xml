@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
@@ -12,7 +11,7 @@
         <init-param>
             <description>project file path</description>
             <param-name>projectFile</param-name>
-            <param-value>WEB-INF/soapui/mock-all-services-soapui-project.xml</param-value>
+            <param-value>WEB-INF/soapui/siddhatechtest.xml</param-value>
         </init-param>
         <init-param>
             <description>enable Web UI</description>
@@ -22,7 +21,7 @@
         <init-param>
             <description>global settings file</description>
             <param-name>soapUISettings</param-name>
-            <param-value>WEB-INF/soapui/soapui-settings.xml</param-value>
+            <param-value></param-value>
         </init-param>
         <init-param>
             <description>set listeners directory</description>
@@ -42,7 +41,7 @@
         <init-param>
             <description>set MockService endpoint used in generated WSDLs and schemas</description>
             <param-name>mockServiceEndpoint</param-name>
-            <param-value>http://localhost:8085/Test</param-value>
+            <param-value></param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
