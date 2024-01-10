@@ -30,7 +30,7 @@ pipeline {
     stage('SCM Checkout') {
       steps{
         script {
-          git branch: 'feature/vaibhav', credentialsId: 'Github_cred', url: 'https://github.com/Osiris199/tomcat.git'
+          git branch: 'feature/vaibhav', credentialsId: 'Github_cred', url: 'https://github.com/RaghavendraPrabhu/siddhatechtest.git'
         }
       }
     }
