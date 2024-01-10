@@ -7,5 +7,29 @@ pipeline {
                git branch: 'feature/nikita', credentialsId: '49fc5d96-6df3-450e-a375-f5c0d84e110e', url: 'https://github.com/RaghavendraPrabhu/siddhatechtest.git'
             }
         }
+		
+		stage('Package') {
+            steps {
+			   bat """
+			   jar -cvf Test.war *
+			   type nul > tomcat_users.xml
+			   echo ^<?xml version="1.0" encoding="UTF-8"?^> > tomcat_users.xml
+			   echo ^<tomcat-users^> >> tomcat_users.xml
+			   echo ^    ^<role rolename="manager-gui"/^> >> tomcat_users.xml
+			   echo ^    ^<user username="tomcatuser" password="tomcat@599" roles="manager-gui"/^> >> tomcat_users.xml
+			   echo ^</tomcat-users^> >> tomcat_users.xml
+			   """
+            }
+        }
+		
+		stage('Deploy') {
+            steps {
+               bat """
+			   cd ${env.WORKSPACE}
+			   docker build -t tomcat1 .
+			   docker run tomcat1
+			   """
+            }
+        }
     }
 }
